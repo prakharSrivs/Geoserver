@@ -77,9 +77,9 @@ overlays = new ol.layer.Group({
             title: 'AMC Boarder',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/retry/wms',
+                url: 'http://65.2.128.71:8080/geoserver/isrProject/wms',
                 params: {
-                    'LAYERS': 'retry:6-4-2023-1296624'
+                    'LAYERS': 'isrProject:6-4-2023-1296624'
                 },
                 ratio: 1,
                 serverType: 'geoserver'
@@ -91,9 +91,9 @@ overlays = new ol.layer.Group({
             title: 'Road',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/retry/wms',
+                url: 'http://65.2.128.71:8080/geoserver/isrProject/wms',
                 params: {
-                    'LAYERS': 'retry:6-5-2023-1867336'
+                    'LAYERS': 'isrProject:6-5-2023-1867336'
                 },
                 ratio: 1,
                 serverType: 'geoserver'
@@ -104,9 +104,9 @@ overlays = new ol.layer.Group({
             title: 'Road',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/retry/wms',
+                url: 'http://65.2.128.71:8080/geoserver/isrProject/wms',
                 params: {
-                    'LAYERS': 'retry:6-5-2023-8429511'
+                    'LAYERS': '	isrProject:6-5-2023-8429511'
                 },
                 ratio: 1,
                 serverType: 'geoserver'
@@ -116,9 +116,9 @@ overlays = new ol.layer.Group({
             title: 'Road',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/retry/wms',
+                url: 'http://65.2.128.71:8080/geoserver/isrProject/wms',
                 params: {
-                    'LAYERS': 'retry:6-5-2023-8700350'
+                    'LAYERS': 'isrProject:6-5-2023-8700350'
                 },
                 ratio: 1,
                 serverType: 'geoserver'
@@ -128,9 +128,9 @@ overlays = new ol.layer.Group({
             title: 'Test',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://localhost:8080/geoserver/retry/wms',
+                url: 'http://65.2.128.71:8080/geoserver/isrProject/wms',
                 params: {
-                    'LAYERS': 'retry:test'
+                    'LAYERS': 'isrProject:test'
                 },
                 ratio: 1,
                 serverType: 'geoserver'
@@ -151,19 +151,7 @@ overlays = new ol.layer.Group({
 	  map.addLayer(base_maps);
 	  map.addLayer(overlays);
 	  
-	  var rainfall = new ol.layer.Image({
-		  title: 'rainfall_upto_04july_2018',
-         // extent: [-180, -90, -180, 90],
-          source: new ol.source.ImageWMS({
-            url: 'http://localhost:8081/geoserver/wms',
-            params: {'LAYERS': 'spatial:rainfall_upto_04july_2018'},
-            ratio: 1,
-            serverType: 'geoserver'
-          })
-        });
-		
-		overlays.getLayers().push(rainfall);
-		//map.addLayer(rainfall);
+	
 	  
 	var mouse_position = new ol.control.MousePosition();
 	map.addControl(mouse_position);
@@ -205,44 +193,7 @@ var layerSwitcher = new ol.control.LayerSwitcher({
   });
   map.addControl(layerSwitcher);
   
-  	function legend () {
-		
-	//	$('#legend').empty();
-		
-		var no_layers = overlays.getLayers().get('length');
-	
-		var head = document.createElement("h4");
-		
-        var txt = document.createTextNode("Legend");
-		
-       head.appendChild(txt);
-	   var element = document.getElementById("legend");
-       element.appendChild(head);
-		var ar = [];
-		var i;
-		for (i = 0; i < no_layers; i++) {
-		ar.push("http://localhost:8081/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER="+overlays.getLayers().item(i).get('title'));
-		//alert(overlays.getLayers().item(i).get('title'));
-		}
-		for (i = 0; i < no_layers; i++) {
-		var head = document.createElement("p");
-		
-        var txt = document.createTextNode(overlays.getLayers().item(i).get('title'));
-		//alert(txt[i]);
-       head.appendChild(txt);
-	   var element = document.getElementById("legend");
-       element.appendChild(head);
-		 var img = new Image();
-       img.src = ar[i];
-      
-      var src = document.getElementById("legend");
-      src.appendChild(img);
- 
-     }
-	 
-	 }
-	 
-	 legend();
+  // 
 	 
       
 	 
