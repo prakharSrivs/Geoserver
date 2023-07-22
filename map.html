@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+    const token = sessionStorage.getItem('user');
+    if (!token) {
+      window.location.href = 'index.html';
+    }
+    </script>
+    <h1>Welcome This is a map</h1>
+    <form id="logoutForm">
+        <button type="submit">Log Out</button>
+    </form>
+    <script>
+    const logoutForm=document.querySelector("#logoutForm")
+
+    logoutForm.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        axios.post("http://localhost:3000/users/logout/"+token)
+        .then(response=>{
+            sessionStorage.removeItem("user")
+        window.location.href="index.html"
+        })
+        .catch(error =>{
+            alert("Error Logging out the user")
+            console.log(error);
+        })
+    })
+    </script>
+</body>
+</html>

@@ -27,14 +27,13 @@ var container = document.getElementById('popup');
 	
 	var view = new ol.View({
 	projection: 'EPSG:4326',
-         center: [78.0,23.0],
-          zoom: 5,
-		  
+         center: [91.26,23.85],
+          zoom: 12,
         });
 		var view_ov = new ol.View({
 	projection: 'EPSG:4326',
-        center: [78.0,23.0],
-          zoom: 5,
+        center: [91.26,23.85],
+          zoom: 12,
         });
 		
 		
@@ -77,7 +76,7 @@ overlays = new ol.layer.Group({
             title: 'AMC Boarder',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://65.2.128.71:8080/geoserver/isrProject/wms',
+                url: 'http://3.110.159.216:8080/geoserver/isrProject/wms',
                 params: {
                     'LAYERS': 'isrProject:6-4-2023-1296624'
                 },
@@ -91,7 +90,7 @@ overlays = new ol.layer.Group({
             title: 'Road',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://65.2.128.71:8080/geoserver/isrProject/wms',
+                url: 'http://3.110.159.216:8080/geoserver/isrProject/wms',
                 params: {
                     'LAYERS': 'isrProject:6-5-2023-1867336'
                 },
@@ -104,7 +103,7 @@ overlays = new ol.layer.Group({
             title: 'Road',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://65.2.128.71:8080/geoserver/isrProject/wms',
+                url: 'http://3.110.159.216:8080/geoserver/isrProject/wms',
                 params: {
                     'LAYERS': '	isrProject:6-5-2023-8429511'
                 },
@@ -116,7 +115,7 @@ overlays = new ol.layer.Group({
             title: 'Road',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://65.2.128.71:8080/geoserver/isrProject/wms',
+                url: 'http://3.110.159.216:8080/geoserver/isrProject/wms',
                 params: {
                     'LAYERS': 'isrProject:6-5-2023-8700350'
                 },
@@ -128,7 +127,7 @@ overlays = new ol.layer.Group({
             title: 'Test',
             // extent: [-180, -90, -180, 90],
             source: new ol.source.ImageWMS({
-                url: 'http://65.2.128.71:8080/geoserver/isrProject/wms',
+                url: 'http://3.110.159.216:8080/geoserver/isrProject/wms',
                 params: {
                     'LAYERS': 'isrProject:test'
                 },
